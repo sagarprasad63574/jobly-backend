@@ -7,19 +7,14 @@ let db;
 
 if (process.env.NODE_ENV === "production") {
   db = new Client({
-      user: 'sagarprasad63574',
-      host: 'localhost',
-      database: getDatabaseUri(),
-      password: 'Wizard101pirate101!',
-      port: 5432,
+    connectionString: getDatabaseUri(),
+    ssl: {
+      rejectUnauthorized: false
+    }
   });
 } else {
   db = new Client({
-      user: 'sagarprasad63574',
-      host: 'localhost',
-      database: getDatabaseUri(),
-      password: 'Wizard101pirate101!',
-      port: 5432,
+    connectionString: getDatabaseUri()
   });
 }
 
